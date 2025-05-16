@@ -1,26 +1,99 @@
-import { itemArray, type item } from "./items";
+import { itemArray,cart, type item, type arrayType } from "./items";
 
-console.log(itemArray)
+const showItem = (how: boolean) => {
+    const items = document.querySelector('.items') as HTMLElement
+    const total = document.querySelector('.total') as HTMLElement
+    const carbon = document.querySelector('.carbon') as HTMLElement
+    const btnDiv = document.querySelector('.btn-div') as HTMLElement
+    if (how) {
+        items.style.display='flex'
+        total.style.display='flex'
+        carbon.style.display='flex'
+        btnDiv.style.display='flex'
+    } else {
+        items.style.display = 'none'
+        total.style.display = 'none'
+        carbon.style.display = 'none'
+        btnDiv.style.display = 'none'
+    }
+}
 
-const itemArea = document.getElementById('item-area') as HTMLElement
 
-let htmlString = '';
-
-itemArray.forEach((item:item) => {
-    htmlString +=`<div class="meal">
-      <div class="img">
-        <img src=${item.img} alt="">
+const handle_cart = () => {
+    showItem(true)
+    const emptyDiv = document.querySelector('.empty') as HTMLElement
+    emptyDiv.style.display = 'none'
+    let htmlString = ''
+    const itemsDivSide = document.querySelector('.items') as HTMLElement
+    cart.getItems.forEach((item:arrayType) => {
+        const itemCart: item = itemArray[item.index]
+        
+        htmlString += `
+      <div>
+        <h6>Classic Tiramisu</h6>
+        <p><span id="quantity">${item.quantity}X</span> <span id="cost-1">@ $${itemCart.h5}</span> = <span id="cost-total">$${item.quantity * Number(itemCart.h5)}</span> </p>
+        <span>X</span>
       </div>
-      <div class="bottom">
-        <button>Add to Cart</button>
-        <div class="bottom-description">
-          <p>${item.p}</p>
-          <h4>${item.h4}</h4>
-          <h5 class="price">$ ${item.h5}</h5>
-        </div>
-      </div>
-    </div>`
-})
-console.log(itemArea)
+           `
+        
+    })
+    itemsDivSide.innerHTML = htmlString
+}
 
-itemArea.innerHTML=htmlString
+const show_empty_cart = () => {
+    showItem(false)
+    const emptyDiv = document.querySelector('.empty') as HTMLElement
+    emptyDiv.style.display = 'block'
+
+    
+}
+
+
+const itemDisplay = () => {
+    const itemArea = document.getElementById('item-area') as HTMLElement
+    let htmlString = '';
+    
+    itemArray.forEach((item:item,index) => {
+        htmlString +=`<div class="meal ${index}">
+          <div class="img">
+            <img src=${item.img} alt="">
+          </div>
+          <div class="bottom">
+            <button class="btn">Add to Cart</button>
+            <div class="bottom-description">
+              <p>${item.p}</p>
+              <h4>${item.h4}</h4>
+              <h5 class="price">$ ${item.h5}</h5>
+            </div>
+          </div>
+        </div>`
+    })
+    
+    itemArea.innerHTML = htmlString
+
+    const addButtons = document.querySelectorAll('.btn')
+
+    addButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            const mealDiv = (e.currentTarget as HTMLElement).closest('.meal');
+
+            if (mealDiv) {
+                let indexClass=mealDiv.classList[1]
+
+                if (indexClass) {
+                    const index = parseInt(indexClass);
+                    cart.addItem(index)
+                    if (cart.getItems.length >= 1) {
+                        handle_cart()
+                    } else {
+                        show_empty_cart()
+                    }
+                }
+            }
+        })
+        
+    })
+}
+
+itemDisplay()
+
