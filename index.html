@@ -1,273 +1,161 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./src/styles/style.css">
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app">
-      <div class="header">
-        <div class="img"><img src="/src/assets/images/logo.svg" alt="" srcset=""></div>
-        <h3>Extensions List</h3>
 
-        <div class="btns">
-          <button>All</button>
-          <button>Active</button>
-          <button>Inactive</button>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./src/styles/style.css">
+  <title>Frontend Mentor | Product list with cart</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    Desserts
+
+    <div>
+      <div>
+        <img src="" alt="">
       </div>
-
-      <div class="body">
-      
-      <!-- If you plan to use the JSON file to populate the data dynamically, you can delete the content below -->
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
+      <div>
+        <button>Add to Cart</button>
+        <div>
+          <p>Waffle</p>
+          <h4>Waffle with Berries</h4>
+          <h5 class="price">6.50</h5>
         </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>  </div>
-        </div>
-        DevLens
-        Quickly inspect page layouts and visualize element boundaries.
-        Remove
-
-      </article>
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
-        </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>
-          </div>
-        </div>
-        StyleSpy
-        Instantly analyze and copy CSS from any webpage element.
-        Remove
-      </article>
-
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
-        </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>
-          </div>
-        </div>
-        SpeedBoost
-        Optimizes browser resource usage to accelerate page loading.
-        Remove
-      </article>
-
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
-        </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>
-          </div>
-        </div>
-        JSONWizard
-        Formats, validates, and prettifies JSON responses in-browser.
-        Remove
-      </article>
-
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
-        </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>
-          </div>
-        </div>
-        TabMaster Pro
-        Organizes browser tabs into groups and sessions.
-        Remove
-      </article>
-
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
-        </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>
-          </div>
-        </div>
-        ViewportBuddy
-        Simulates various screen resolutions directly within the browser.
-        Remove
-      </article>
-
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
-        </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>
-          </div>
-        </div>
-        Markup Notes
-        Enables annotation and notes directly onto webpages for collaborative debugging.
-        Remove
-      </article>
-
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
-        </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>
-          </div>
-        </div>
-              GridGuides
-              Overlay customizable grids and alignment guides on any webpage.
-              Remove
-      </article>
-
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
-        </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>
-          </div>
-        </div>
-            Palette Picker
-            Instantly extracts color palettes from any webpage.
-            Remove
-      </article>
-
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
-        </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>
-          </div>
-        </div>
-        LinkChecker
-        Scans and highlights broken links on any page.
-        Remove
-      </article>
-
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
-        </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>
-          </div>
-        </div>
-        DOM Snapshot
-        Capture and export DOM structures quickly.
-        Remove
-      </article>
-
-      <article class="article">
-        <div class="top">
-          <div class="img img-article"></div>
-          <div class="content">
-            <h4></h4>
-            <p></p>
-          </div>
-        </div>
-        <div class="bottom">
-          <button>remove</button>
-          <div class="toggle-container">
-            <input type="checkbox" id="toggle" class="toggle-input">
-            <label for="toggle" class="toggle-slider"></label>
-          </div>
-        </div>
-            ConsolePlus
-            Enhanced developer console with advanced filtering and logging.
-            Remove
-      </article>
-      
- 
+      </div>
     </div>
 
+    <div>
+      <div></div>
+      <div>
+        <button>Add to Cart</button>
+        <div>
+          <p>Crème Brûlée</p>
+          <h4>Vanilla Bean Crème Brûlée</h4>
+          <h5>7.00</h5>
+        </div>
+      </div>
+    </div>
+
+  
+    <div>
+      <div></div>
+      <div>
+        <button>Add to Cart</button>
+        <div>
+          <p>Macaron</p>
+          <h4>Macaron Mix of Five</h4>
+          <h5>8.00</h5>
+        </div>
+      </div>
+    </div>
+  
+    <div>
+      <div></div>
+      <div>
+        <button>Add to Cart</button>
+        <div>
+          <p>Tiramisu</p>
+          <h4>Classic Tiramisu</h4>
+          <h5>5.50</h5>
+        </div>
+      </div>
+    </div>
     
+    <div>
+      <div></div>
+      <div>
+        <button>Add to Cart</button>
+        <div>
+          <p>Baklava</p>
+          <h4>Pistachio Baklava</h4>
+          <h5>4.00</h5>
+        </div>
+      </div>
     </div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+  
+    <div>
+      <div></div>
+      <div>
+        <button>Add to Cart</button>
+        <div>
+          <p>Pie</p>
+          <h4>Lemon Meringue Pie</h4>
+          <h5>5.00</h5>
+        </div>
+      </div>
+    </div>
+
+  
+    <div>
+      <div></div>
+      <div>
+        <button>Add to Cart</button>
+        <div>
+          <p>Cake</p>
+          <h4>Red Velvet Cake</h4>
+          <h5>4.50</h5>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <div></div>
+      <div>
+        <button>Add to Cart</button>
+        <div>
+          <p>Brownie</p>
+          <h4>Salted Caramel Brownie</h4>
+          <h5>4.50</h5>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <div></div>
+      <div>
+        <button>Add to Cart</button>
+        <div>
+          <p>Panna Cotta</p>
+          <h4>Vanilla Panna Cotta</h4>
+          <h5>6.50</h5>
+        </div>
+      </div>
+    </div>
+  
+</main>
+<aside>
+  <h3>Your Cart</h3>
+  <div class="items">
+    <div>
+      <h6>Classic Tiramisu</h6>
+      <p>1X @ $5.50=$5.50 <span>X</span></p>
+
+    </div>
+  </div>
+</aside>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <script src="/src/main.ts"></script>
+</body>
+
 </html>
