@@ -186,10 +186,77 @@ aside{
     position: relative;
 }
 .close{
+    /* display: none; */
+    /* color: red; */
+    /* align-self:flex-end ; */
+    /* display: flex; */
     border-radius: 10px;
     padding: 2px;
     position: absolute;
     right: 0;
     border:  0.5px solid black;
     cursor: pointer;
+}
+/* Add to Cart button styles */
+.btn.add-to-cart {
+    position: absolute;
+    left: 25%;
+    top: -17%;
+    background-color: aliceblue;
+    border: 1px solid;
+    border-radius: 18px;
+    width: 150px;
+    padding: 10px 0px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn.add-to-cart:hover {
+    border-color: hsl(14, 86%, 42%);
+    color: hsl(14, 86%, 42%);
+}
+
+.btn.add-to-cart span img {
+    width: 15px;
+    margin-right: 5px;
+}
+
+/* Quantity controls styles */
+.quantity-controls {
+    position: absolute;
+    left: 50%;
+    top: -15px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.quantity-controls button {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid hsl(14, 86%, 42%);
+    background: white;
+    color: hsl(14, 86%, 42%);
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-controls button:hover {
+    background-color: hsl(14, 86%, 42%);
+    color: white;
+}
+
+.quantity-controls .quantity {
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
 }

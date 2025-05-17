@@ -65,27 +65,49 @@ export const itemArray: item[] = [
 export interface arrayType {
     index: number
     quantity: number
-}
-class CartItem{
-    private items: arrayType[] = []
+}class CartItem {
+    private items: arrayType[] = [];
+
     addItem(index: number) {
         const existing = this.items.find(item => item.index === index);
         existing ? existing.quantity++ : this.items.push({ index, quantity: 1 });
     }
 
+    increaseQuantity(cartIndex: number) {
+        if (this.items[cartIndex]) {
+            this.items[cartIndex].quantity++;
+        }
+    }
+
+    decreaseQuantity(cartIndex: number) {
+        if (this.items[cartIndex]) {
+            if (this.items[cartIndex].quantity > 1) {
+                this.items[cartIndex].quantity--;
+            } else {
+                this.removeCartItem(cartIndex);
+            }
+        }
+    }
+
     get getItems() {
         return this.items;
     }
-    removeCartItem(targetIndex: number) {
-        console.log(targetIndex)
-        const cartItem = this.items[targetIndex]
-        const cartIndex = this.items.findIndex(item => item.index === cartItem.index);
 
-        if (cartIndex !== -1) {
-            this.items.splice(cartIndex, 1); // Remove 1 item at found position
-            console.log(`Removed item ${targetIndex} from cart`);
+    removeCartItem(cartIndex: number) {
+        if (cartIndex >= 0 && cartIndex < this.items.length) {
+            this.items.splice(cartIndex, 1);
         }
     }
 }
 
-export const cart = new CartItem();
+export const cart = new CartItem()
+
+
+// const buttonHtml = isInCart
+//     ? `<button class="btn in-cart" disabled>
+//                  Added to Cart
+//                </button>`
+//     : `<button class="btn add-to-cart" >
+//                  <span><img src='./src/assets/images/icon-add-to-cart.svg'/><span/>
+//                  Add to Cart
+//                </button>`
