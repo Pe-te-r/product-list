@@ -406,3 +406,189 @@ aside{
     
           .new-order-btn:hover {
               background-color: #d62839;     }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            body {
+                flex-direction: column;
+                padding-top: 2%;
+            }
+    
+            main,
+            aside {
+                width: 95%;
+                margin: 0 auto;
+            }
+    
+            aside {
+                margin-top: 30px;
+            }
+    
+            .container {
+                width: 100%;
+            }
+        }
+    
+        @media (max-width: 768px) {
+            main {
+                width: 100%;
+            }
+    
+            section {
+                width: 100%;
+                justify-content: space-around;
+            }
+    
+            .meal {
+                width: 45%;
+                margin: 10px 5px;
+            }
+    
+            .bottom>button,
+            .quantity-controls {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+    
+            .confirmation-modal {
+                width: 95%;
+            }
+        }
+    
+        @media (max-width: 576px) {
+            .meal {
+                width: 90%;
+            }
+    
+            .carbon {
+                width: 90%;
+            }
+    
+            .btn-div {
+                width: 90%;
+            }
+    
+            .confirmation-item {
+                flex-direction: column;
+                text-align: center;
+            }
+    
+            .item-image {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    
+        /* Mobile-specific adjustments */
+        @media (max-width: 480px) {
+            main>h2 {
+                margin-left: 5%;
+                font-size: 1.5rem;
+            }
+    
+            .bottom>button,
+            .quantity-controls {
+                width: 80%;
+                font-size: 0.9rem;
+            }
+    
+            .quantity-controls {
+                top: -10px;
+            }
+    
+            .bottom-description {
+                padding: 5px;
+            }
+    
+            .bottom-description h4 {
+                font-size: 1rem;
+            }
+    
+            .bottom-description p {
+                font-size: 0.9rem;
+            }
+    
+            .confirmation-modal {
+                padding: 10px;
+            }
+    
+            .modal-header h2 {
+                font-size: 1.3rem;
+            }
+        }
+    
+        /* Tablet landscape adjustments */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            body {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+    
+            main {
+                width: 65%;
+            }
+    
+            aside {
+                width: 30%;
+            }
+    
+            .meal {
+                width: 45%;
+            }
+        }
+    
+        /* Very small screens */
+        @media (max-width: 360px) {
+            .meal {
+                width: 95%;
+                margin: 10px auto;
+            }
+    
+            .bottom>button,
+            .quantity-controls {
+                width: 90%;
+            }
+    
+            .confirmation-modal {
+                width: 100%;
+                border-radius: 0;
+            }
+        }
+    
+        /* Adjustments for the cart items on small screens */
+        @media (max-width: 768px) {
+            .parent-close {
+                padding-right: 20px;
+            }
+    
+            .close {
+                right: -10px;
+            }
+    
+            .items>div>h6 {
+                font-size: 0.9rem;
+            }
+    
+            .items>div>p {
+                font-size: 0.8rem;
+            }
+        }
+    
+        /* Ensure modal is always centered and properly sized */
+        @media (min-width: 1025px) {
+            .confirmation-modal {
+                width: 50%;
+                max-width: 600px;
+            }
+        }
+    
+        /* Fix for very tall screens */
+        @media (min-height: 1000px) {
+            body {
+                padding-top: 5%;
+            }
+    
+            .confirmation-modal {
+                max-height: 60vh;
+            }
+        }
