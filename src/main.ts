@@ -50,54 +50,68 @@ const handle_cart = () => {
             if (index) {
                 cart.removeCartItem(Number(index))
                 handle_cart()
+                displayItemHtml()
             }
         })
     });
+
 }
 
-const show_empty_cart = () => {
-    showItem(false)
-    console.log('three')
+// Add this function to handle the order confirmation
+const showOrderConfirmation = () => {
+    const modal = document.querySelector('.modal-overlay') as HTMLElement;
+    const itemsContainer = document.getElementById('confirmationItems') as HTMLElement;
+    const totalElement = document.getElementById('confirmationTotal') as HTMLElement;
 
-    
-}
+    // Clear previous items
+    itemsContainer.innerHTML = '';
 
-// const displayItemHtml = () => {
-//     const itemArea = document.getElementById('item-area') as HTMLElement;
-//     let htmlString = '';
+    let total = 0;
 
-//     const cartItems = cart.getItems; 
-//     itemArray.forEach((item: item, index) => {
-//         // Check if this item is already in the cart
-//         const isInCart = cartItems.some((cartItem:arrayType) => cartItem.index === index);
-//         console.log(isInCart)
+    // Add each item from cart to the modal
+    cart.getItems.forEach((cartItem) => {
+        const item = itemArray[cartItem.index];
+        const itemTotal = cartItem.quantity * parseFloat(item.h5);
+        total += itemTotal;
 
-//         const buttonHtml = isInCart
-//             ? `<button class="btn in-cart" disabled>
-//                  Added to Cart
-//                </button>`
-//             : `<button class="btn add-to-cart" >
-//                  <span><img src='./src/assets/images/icon-add-to-cart.svg'/><span/>
-//                  Add to Cart
-//                </button>`;
+        const itemElement = document.createElement('div');
+        itemElement.className = 'confirmation-item';
 
-//         htmlString += `<div class="meal ${index}">
-//           <div class="img">
-//             <img src=${item.img} alt="${item.h4}">
-//           </div>
-//           <div class="bottom">
-//             ${buttonHtml}
-//             <div class="bottom-description">
-//               <p>${item.p}</p>
-//               <h4>${item.h4}</h4>
-//               <h5 class="price">$ ${item.h5}</h5>
-//             </div>
-//           </div>
-//         </div>`;
-//     });
+        itemElement.innerHTML = `
+            <img src="${item.img}" alt="${item.h4}" class="item-image">
+            <div class="item-details">
+                <h4 class="item-name">${item.h4}</h4>
+                <p class="item-quantity">${cartItem.quantity}x @ $${item.h5} = $${itemTotal.toFixed(2)}</p>
+            </div>
+        `;
 
-//     itemArea.innerHTML = htmlString;
-// }
+        itemsContainer.appendChild(itemElement);
+    });
+
+    // Update total
+    totalElement.textContent = `$${total.toFixed(2)}`;
+
+    // Show modal
+    modal.classList.add('active');
+};
+
+// Add event listener to your confirm order button
+document.querySelector('.order-confirm')?.addEventListener('click', showOrderConfirmation);
+
+// Add event listener to close modal when clicking outside
+document.querySelector('.modal-overlay')?.addEventListener('click', (e) => {
+    if (e.target === document.querySelector('.modal-overlay')) {
+        const modal = document.querySelector('.modal-overlay') as HTMLElement;
+        modal.classList.remove('active');
+    }
+});
+
+// Add event listener to new order button
+document.getElementById('newOrderBtn')?.addEventListener('click', () => {
+    const modal = document.querySelector('.modal-overlay') as HTMLElement;
+    modal.classList.remove('active');
+    // You could add additional new order logic here
+});
 
 const displayItemHtml = () => {
     const itemArea = document.getElementById('item-area') as HTMLElement;
@@ -143,8 +157,8 @@ const displayItemHtml = () => {
         button.addEventListener('click', (e) => {
             const index = parseInt((e.currentTarget as HTMLElement).closest('.meal')?.classList[1] || '0');
             cart.addItem(Number(index));
-            displayItemHtml();
             handle_cart();
+            displayItemHtml();
         });
     });
 
@@ -169,35 +183,9 @@ const displayItemHtml = () => {
             }
         });
     });
+
 };
 
-const itemDisplay = () => {
-    displayItemHtml()
+displayItemHtml()
 
-    const addButtons = document.querySelectorAll('.btn')
-
-    console.log(cart.getItems)
-    addButtons.forEach((button) => {
-        button.addEventListener('click', (e) => {
-            const mealDiv = (e.currentTarget as HTMLElement).closest('.meal');
-            
-            if (mealDiv) {
-                let indexClass=mealDiv.classList[1]
-                
-                if (indexClass) {
-                    const index = parseInt(indexClass);
-                    cart.addItem(index)
-                    if (cart.getItems.length >= 1) {
-                        handle_cart()
-                    } else {
-                        show_empty_cart()
-                    }
-                }
-            }
-        })
-        
-    })
-}
-
-itemDisplay()
 

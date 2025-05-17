@@ -27,135 +27,6 @@
   <main>
     <h2>Desserts</h2>
     <section id="item-area">
-
-<!--       
-      <div class="meal">
-      <div class="img">
-        <img src="./src/assets/images/image-waffle-desktop.jpg" alt="">
-      </div>
-      <div class="bottom">
-        <button>Add to Cart</button>
-        <div class="bottom-description">
-          <p>Waffle</p>
-          <h4>Waffle with Berries</h4>
-          <h5 class="price">$ 6.50</h5>
-        </div>
-      </div>
-    </div>
-
-    <div class="meal">
-      <div class="img">
-        <img src="./src/assets/images/image-creme-brulee-desktop.jpg" alt="">
-      </div>
-      <div class="bottom">
-        <button>Add to Cart</button>
-        <div class="bottom-description">
-          <p>Crème Brûlée</p>
-          <h4>Vanilla Bean Crème Brûlée</h4>
-          <h5>$ 7.00</h5>
-        </div>
-      </div>
-    </div>
-
-  
-    <div class="meal">
-      <div class="img">
-        <img src="./src/assets/images/image-macaron-desktop.jpg" alt="">
-      </div>
-      <div class="bottom">
-        <button>Add to Cart</button>
-        <div class="bottom-description">
-          <p>Macaron</p>
-          <h4>Macaron Mix of Five</h4>
-          <h5>$ 8.00</h5>
-        </div>
-      </div>
-    </div>
-  
-    <div class="meal">
-      <div class="img">
-        <img src="./src/assets/images/image-tiramisu-desktop.jpg" alt="">
-      </div>
-      <div class="bottom">
-        <button>Add to Cart</button>
-        <div class="bottom-description">
-          <p>Tiramisu</p>
-          <h4>Classic Tiramisu</h4>
-          <h5>$ 5.50</h5>
-        </div>
-      </div>
-    </div>
-    
-    <div class="meal">
-      <div class="img">
-        <img src="./src/assets/images/image-baklava-desktop.jpg" alt="">
-      </div>
-      <div class="bottom">
-        <button>Add to Cart</button>
-        <div class="bottom-description">
-          <p>Baklava</p>
-          <h4>Pistachio Baklava</h4>
-          <h5>$ 4.00</h5>
-        </div>
-      </div>
-    </div>
-    
-    <div class="meal">
-      <div class="img">
-        <img src="./src/assets/images/image-meringue-desktop.jpg" alt="">
-      </div>
-      <div class="bottom">
-        <button>Add to Cart</button>
-        <div class="bottom-description">
-          <p>Pie</p>
-          <h4>Lemon Meringue Pie</h4>
-          <h5>$ 5.00</h5>
-        </div>
-      </div>
-    </div>
-
-  
-    <div class="meal">
-      <div class="img">
-        <img src="./src/assets/images/image-cake-desktop.jpg" alt="">
-      </div>
-      <div class="bottom">
-        <button>Add to Cart</button>
-        <div class="bottom-description">
-          <p>Cake</p>
-          <h4>Red Velvet Cake</h4>
-          <h5>$ 4.50</h5>
-        </div>
-      </div>
-    </div>
-    
-    <div class="meal">
-      <div class="img">
-        <img src="./src/assets/images/image-brownie-desktop.jpg" alt="">
-      </div>
-      <div class="bottom">
-        <button>Add to Cart</button>
-        <div class="bottom-description">
-          <p>Brownie</p>
-          <h4>Salted Caramel Brownie</h4>
-          <h5>$ 4.50</h5>
-        </div>
-      </div>
-    </div>
-    
-    <div class="meal">
-      <div class="img">
-        <img src="./src/assets/images/image-panna-cotta-desktop.jpg" alt="">
-      </div>
-      <div class="bottom">
-        <button>Add to Cart</button>
-        <div class="bottom-description">
-          <p>Panna Cotta</p>
-          <h4>Vanilla Panna Cotta</h4>
-          <h5>$ 6.50</h5>
-        </div>
-      </div>
-    </div> -->
   </section>
 </main>
 
@@ -191,11 +62,33 @@
         <p>This is a <span>carbon-neutral</span> delivery</p>
       </div>
       <div class="btn-div">
-        <button>Confirm Order</button>
+        <button class="order-confirm">Confirm Order</button>
         
       </div>
     </div>
   </aside>
+
+  <div class="modal-overlay " id="confirmationModal">
+    <div class="confirmation-modal">
+      <div class="modal-header">
+        <h2>Order Confirmed</h2>
+        <p>We hope you enjoy your food!</p>
+      </div>
+    
+      <div class="modal-body" id="confirmationItems">
+        <!-- Items will be inserted here dynamically -->
+      </div>
+    
+      <div class="modal-footer">
+        <div class="order-total">
+          <span>Order Total</span>
+          <span id="confirmationTotal">$0.00</span>
+        </div>
+        <p class="carbon-neutral">This is a carbon-neutral delivery</p>
+        <button class="new-order-btn" id="newOrderBtn">Start New Order</button>
+      </div>
+    </div>
+    <dvi/>
 
 <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
