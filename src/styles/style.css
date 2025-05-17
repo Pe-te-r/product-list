@@ -99,6 +99,7 @@ aside{
     width: 90%;
     background-color: hsl(20, 50%, 98%);
     border-radius: 10px;
+    height: max-content;
     box-shadow: 2px 2px 2px 2px rgba(172, 161, 161, 0.103);
 }
 .container>h3{
@@ -108,8 +109,9 @@ aside{
         border-bottom: 1px solid grey;
     margin-top: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     padding: 10px;
 }
 .container>.items>div>h6{
@@ -173,4 +175,17 @@ aside{
 .container>div>button:hover{
     background-color: hsl(14, 90%, 45%);
 
+}
+
+.list-cart{
+    display: none;
+}
+.close{
+    /* display: none; */
+    /* color: red; */
+    /* align-self:flex-end ; */
+    /* display: flex; */
+    position: absolute;
+    right: 0;
+    border:  2px solid black;
 }

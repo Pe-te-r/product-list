@@ -2,42 +2,50 @@ import { itemArray,cart, type item, type arrayType } from "./items";
 
 const showItem = (how: boolean) => {
     const items = document.querySelector('.items') as HTMLElement
-    const total = document.querySelector('.total') as HTMLElement
-    const carbon = document.querySelector('.carbon') as HTMLElement
-    const btnDiv = document.querySelector('.btn-div') as HTMLElement
+    // const total = document.querySelector('.total') as HTMLElement
+    // const carbon = document.querySelector('.carbon') as HTMLElement
+    // const btnDiv = document.querySelector('.btn-div') as HTMLElement
+    const listCart = document.querySelector('.list-cart') as HTMLElement
+    const emptyDiv = document.querySelector('.empty-aside') as HTMLElement
+    
     if (how) {
-        items.style.display='flex'
-        total.style.display='flex'
-        carbon.style.display='flex'
-        btnDiv.style.display='flex'
+        emptyDiv.style.display = 'none'
+        console.log(items)
+        listCart.style.display='flex'
     } else {
         items.style.display = 'none'
-        total.style.display = 'none'
-        carbon.style.display = 'none'
-        btnDiv.style.display = 'none'
+        // total.style.display = 'none'
+        // carbon.style.display = 'none'
+        // btnDiv.style.display = 'none'
     }
 }
 
-
 const handle_cart = () => {
     showItem(true)
-    const emptyDiv = document.querySelector('.empty') as HTMLElement
-    emptyDiv.style.display = 'none'
     let htmlString = ''
     const itemsDivSide = document.querySelector('.items') as HTMLElement
+    const totalShow = document.querySelector('#total') as HTMLElement
+    const itemCount = document.querySelector('#item-count') as HTMLElement
+    let countItem = 0;
+    let totalMoney=0
     cart.getItems.forEach((item:arrayType) => {
         const itemCart: item = itemArray[item.index]
         
         htmlString += `
       <div>
         <h6>Classic Tiramisu</h6>
-        <p><span id="quantity">${item.quantity}X</span> <span id="cost-1">@ $${itemCart.h5}</span> = <span id="cost-total">$${item.quantity * Number(itemCart.h5)}</span> </p>
-        <span>X</span>
+        <p><span id="quantity">${item.quantity}X</span> <span id="cost-1">@ $${itemCart.h5}</span> = <span id="cost-total">$${String(item.quantity * Number(itemCart.h5))}</span><span class="close">X</span> </p>
+        
       </div>
            `
+        countItem += item.quantity
+        console.log(item.quantity)
+        totalMoney += item.quantity * Number(itemCart.h5)
         
     })
+    totalShow.innerText = `$${totalMoney.toFixed(2)}`
     itemsDivSide.innerHTML = htmlString
+    itemCount.innerText=`${countItem}`
 }
 
 const show_empty_cart = () => {
@@ -84,6 +92,7 @@ const itemDisplay = () => {
                     const index = parseInt(indexClass);
                     cart.addItem(index)
                     if (cart.getItems.length >= 1) {
+                        console.log('above')
                         handle_cart()
                     } else {
                         show_empty_cart()
