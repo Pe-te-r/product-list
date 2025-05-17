@@ -86,7 +86,9 @@ img{
     color:hsl(14, 86%, 42%) ;
 
 }
-    
+.btn>span>img{
+    width: 15px;
+}
 
 
 aside{
@@ -180,12 +182,14 @@ aside{
 .list-cart{
     display: none;
 }
+.parent-close{
+    position: relative;
+}
 .close{
-    /* display: none; */
-    /* color: red; */
-    /* align-self:flex-end ; */
-    /* display: flex; */
+    border-radius: 10px;
+    padding: 2px;
     position: absolute;
     right: 0;
-    border:  2px solid black;
+    border:  0.5px solid black;
+    cursor: pointer;
 }

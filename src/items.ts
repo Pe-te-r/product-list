@@ -76,6 +76,16 @@ class CartItem{
     get getItems() {
         return this.items;
     }
+    removeCartItem(targetIndex: number) {
+        console.log(targetIndex)
+        const cartItem = this.items[targetIndex]
+        const cartIndex = this.items.findIndex(item => item.index === cartItem.index);
+
+        if (cartIndex !== -1) {
+            this.items.splice(cartIndex, 1); // Remove 1 item at found position
+            console.log(`Removed item ${targetIndex} from cart`);
+        }
+    }
 }
 
 export const cart = new CartItem();
