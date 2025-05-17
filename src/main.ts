@@ -31,7 +31,7 @@ const handle_cart = () => {
         htmlString += `
       <div>
         <h6>${itemCart.h4}</h6>
-        <p class="parent-close"><span id="quantity">${item.quantity} X</span> <span id="cost-1">@ $${itemCart.h5}</span> = <span id="cost-total">$ ${Number(item.quantity * Number(itemCart.h5)).toFixed(2)}</span><span class="close ${index}"><img src='./src/assets/images/icon-remove-item.svg'/></span> </p>
+        <p class="parent-close"><span id="quantity">${item.quantity} X</span> <span id="cost-1">@ $${itemCart.h5}</span> = <span id="cost-total">$ ${Number(item.quantity * Number(itemCart.h5)).toFixed(2)}</span><span class="close ${index}"><img src='/assets/images/icon-remove-item.svg'/></span> </p>
         
       </div>
            `
@@ -131,7 +131,7 @@ const displayItemHtml = () => {
                   <button class="increase-item" data-index="${index}">+</button>
                </div>`
             : `<button class="btn add-to-cart">
-                 <span><img src='./src/assets/images/icon-add-to-cart.svg'/></span>
+                 <span><img src='/assets/images/icon-add-to-cart.svg'/></span>
                  Add to Cart
                </button>`;
 
